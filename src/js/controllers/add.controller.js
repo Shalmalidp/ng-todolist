@@ -1,4 +1,4 @@
-function AddController($http, URL, $state){
+function AddController($http, SERVER, $state){
   let vm = this;
   vm.addTask = addTask;
 
@@ -6,13 +6,13 @@ function AddController($http, URL, $state){
     //console.log(taskObj);
     taskObj.complete = false;
     //use $http to make post req to server
-    $http.post(URL,taskObj).then((res)=>{
-      // console.log(res);
+    $http.post(SERVER.URL +'tasks',taskObj,{ headers : SERVER.HEADERS}).then((res)=>{
       $state.go('root.list');
     })
   };
 }
 
-AddController.$inject =['$http','URL','$state'];
+AddController.$inject =['$http','SERVER','$state'];
 
 export { AddController };
+

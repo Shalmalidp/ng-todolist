@@ -1,4 +1,4 @@
-function ListController($http, URL){
+function ListController($http, SERVER){
 
   let vm = this;
   vm.toggleComplete = toggleComplete;
@@ -6,9 +6,9 @@ function ListController($http, URL){
 
 
   function init(){
-    $http.get(URL).then((res)=>{
+    $http.get(SERVER.URL +'tasks',{headers : SERVER.HEADERS}).then((res)=>{
       console.log(res);
-      vm.taskList = res.data;
+      vm.taskList = res.data.data;
     })
   }
 
@@ -22,13 +22,13 @@ function ListController($http, URL){
   }
 
   function updateTaskOnServer(task){
-    $http.put(URL +task._id, task).then((res)=>{
+    $http.put(SERVER.URL+'tasks/'+ task.id, task,{headers : SERVER.HEADERS }).then((res)=>{
       console.log('task updated', task.complete)
     })
   }
 
 }
 
-ListController.$inject =['$http','URL'];
+ListController.$inject =['$http','SERVER'];
 
 export {ListController};
