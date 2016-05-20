@@ -1,1 +1,12 @@
-<h4 class="title">IN ADD TPL</h4>
+<!-- <h4 class="title">IN ADD TPL</h4> -->
+
+<form ng-submit="vm.addTask(task)">
+  <p class='control'>
+    <input ng-model="task.name" class="input" placeholder="Task Name"></input>
+  </p>
+  <p class="control">
+    <input ng-model='task.date' type="date" placeholder="Due Date" class="input">  
+  </p>
+  {{task}}
+  <button class="button is-primary">Add Item</button>
+</form>

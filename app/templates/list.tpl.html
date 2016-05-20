@@ -1,1 +1,10 @@
-<h4 class="title">IN LIST TPL</h4>
+<h4 class="title">HONEY TO DO LIST</h4>
+
+<aside class="menu">
+  <ul class="menu-list">
+    <li ng-repeat="task in vm.taskList">
+      <a ng-click="vm.toggleComplete(task)"class =" {{task.complete}}">
+      {{ task.name }}</a>
+    </li>
+  </ul>
+</aside>

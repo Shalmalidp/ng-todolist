@@ -10,17 +10,16 @@ function config($stateProvider,$urlRouterProvider){
     .state('root.list',{
       url :'/',
       templateUrl :'templates/list.tpl.html',
-      Controller :'ListController as vm' 
+      controller :'ListController as vm' 
     })
     .state('root.add',{
       url :'/add',
       templateUrl :'templates/add.tpl.html',
-      Controller :'AddController as vm' 
-
-    })
+      controller :'AddController as vm' 
+    });
 
   
 }
 
 config.$inject =['$stateProvider','$urlRouterProvider'];
-export {config};
+export { config };
